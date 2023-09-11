@@ -1,1 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Webpage</title>
+</head>
+<body>
+    <!-- Slack Name -->
+    <div data-testid="slackUserName">MosesDude</div>
 
+    <!-- Slack Display Picture -->
+    <img src="slack_profile_picture.jpg" alt="MosesDude" data-testid="slackDisplayImage">
+
+    <!-- Current Day of the Week -->
+    <div data-testid="currentDayOfTheWeek" id="dayOfWeek">Monday</div>
+
+    <!-- Current UTC Time -->
+    <div data-testid="currentUTCTime" id="utcTime">1631385600000</div>
+
+    <!-- Track -->
+    <div data-testid="myTrack">Frontend</div>
+
+    <!-- GitHub URL -->
+    <a href="https://github.com/skepticaldude/HNG-works" data-testid="githubURL">GitHub Repository</a>
+
+    <script>
+        // Function to update day of the week and UTC time
+        function updateDateTime() {
+            const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const dayOfWeekElement = document.getElementById("dayOfWeek");
+            const utcTimeElement = document.getElementById("utcTime");
+            
+            const currentDate = new Date();
+            const dayOfWeek = daysOfWeek[currentDate.getUTCDay()];
+            const utcTime = currentDate.getTime();
+            
+            dayOfWeekElement.textContent = dayOfWeek;
+            utcTimeElement.textContent = utcTime;
+        }
+        
+        setInterval(updateDateTime, 1000);
+        
+        updateDateTime();
+    </script>
+</body>
+</html>
